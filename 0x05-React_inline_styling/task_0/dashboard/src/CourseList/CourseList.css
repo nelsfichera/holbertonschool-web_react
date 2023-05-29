@@ -1,0 +1,22 @@
+#CourseList{
+    margin: 3rem auto;
+    max-width: 90vw;
+  }
+  table{
+    width:100%;
+    border-collapse: collapse;
+  }
+  tbody,thead>*{
+    border: thin solid var(--gray-thin-color);
+  }
+  table td, table th{
+    text-align:left;
+  }
+  thead>tr:nth-child(1)>th{
+    text-align: center;
+  }
+  
+  
+  .courseListContainer{
+    min-height: 45vh;
+  }

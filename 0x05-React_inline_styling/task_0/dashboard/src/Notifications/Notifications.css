@@ -1,0 +1,21 @@
+.Notifications {
+  border      : dotted thin var(--main-color);
+  /* padding  : 2rem; */
+  position    : relative;
+  max-width   : 1000px;
+  min-width   : 30rem;
+}
+
+.notifications-container{
+  position: absolute;
+  top:5px;
+  right: 10px;
+}
+
+li[data-priority='default'] {
+  color: blue
+}
+
+li[data-priority='urgent'] {
+  color: red
+}
