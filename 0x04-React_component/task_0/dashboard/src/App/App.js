@@ -1,55 +1,81 @@
-import React, { Component } from "react";
-import Notifications from "../Notifications/Notifications";
-import Header from "../Header/Header";
-import Login from "../Login/Login";
-import CourseList from "../CourseList/CourseList";
-import Footer from "../Footer/Footer";
-import PropTypes from "prop-types";
-import { getLatestNotification } from "../utils/utils";
-import "./App.css";
+import React, { Fragment } from 'react';
+import logo from '../assets/holberton-logo.jpg';
+import './App.css';
+import {
+  getFullYear,
+  getFooterCopy,
+  getLatestNotification,
+} from '../utils/utils';
+import Header from '../Header/Header';
+import Login from '../Login/Login';
+import Footer from '../Footer/Footer';
+import Notifications from '../Notifications/Notifications';
+import PropTypes from 'prop-types';
+import CourseList from '../CourseList/CourseList';
 
 const listCourses = [
-  { id: 1, name: "ES6", credit: 60 },
-  { id: 2, name: "Webpack", credit: 20 },
-  { id: 3, name: "React", credit: 40 },
+  {
+    id: 1,
+    name: 'ES6',
+    credit: 60,
+  },
+  {
+    id: 2,
+    name: 'Webpack',
+    credit: 20,
+  },
+  {
+    id: 3,
+    name: 'React',
+    credit: 40,
+  },
 ];
 
 const listNotifications = [
-  { id: 1, type: "default", value: "New course available" },
-  { id: 2, type: "urgent", value: "New resume available" },
-  { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
+  {
+    id: 1,
+    type: 'default',
+    value: 'New course available',
+  },
+  {
+    id: 2,
+    type: 'urgent',
+    value: 'New course available',
+  },
+  {
+    id: 3,
+    type: 'urgent',
+    html: { __html: getLatestNotification() },
+  },
 ];
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     const { isLoggedIn } = this.props;
+    console.log(isLoggedIn);
     return (
-      <>
-        <Notifications listNotifications={listNotifications} />
-        <div className="App">
-          <Header />
+      <Fragment>
+        <div className="container">
+          <Notifications listNotifications={listNotifications} />
+          <div className="App">
+            <Header />
+            {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+            <Footer />
+          </div>
         </div>
-        <div className="App-body">
-          {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses} />}
-        </div>
-        <div className="App-footer">
-          <Footer />
-        </div>
-      </>
+      </Fragment>
     );
   }
 }
-
-App.defaultProps = {
-  isLoggedIn: false,
-};
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
 };
 
+App.defaultProps = {
+  isLoggedIn: false,
+};
 export default App;

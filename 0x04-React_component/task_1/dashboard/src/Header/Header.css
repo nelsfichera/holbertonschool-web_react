@@ -1,14 +1,14 @@
-:root {
-    --main-color: #e01d3f;
-}
+.App-header {
+    display        : flex;
+    justify-content: left;
+    align-items    : center
+  }
   
-.header {
-    display: flex;
-    align-items: center;
-    color: var(--main-color);
-    font-size: 20px;
-}
+  .App-header>h1 {
+    display: inline;
+    color  : var(--main-color);
+  }
   
-.header img {
-    width: 200px;
-}
+  .App-header {
+    border-bottom: medium solid var(--main-color);
+  }

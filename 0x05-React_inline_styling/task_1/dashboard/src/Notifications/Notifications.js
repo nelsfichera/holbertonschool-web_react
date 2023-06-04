@@ -102,4 +102,3 @@ Notifications.defaultProps = {
   listNotifications: [],
 };
 export default Notifications;
-Footer

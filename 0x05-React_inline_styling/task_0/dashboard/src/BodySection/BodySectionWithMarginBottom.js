@@ -21,4 +21,3 @@ BodySectionWithMarginBottom.defaultProps = {
 };
 
 export default BodySectionWithMarginBottom;
-Footer

@@ -1,38 +1,24 @@
-import { shallow, mount } from "enzyme";
-import React from "react";
-import BodySection from "./BodySection";
+import { shallow } from 'enzyme';
+import BodySection from './BodySection';
+import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
 
-describe("<BodySection />", () => {
-  it("BodySection renders without crashing", () => {
-    const wrapper = shallow(<BodySection />);
-    expect(wrapper.exists()).toEqual(true);
+describe('<BodySectionWithMarginBottom /> Tests', () => {
+  it('Should render correctly', () => {
+    const wrapper = shallow(<BodySectionWithMarginBottom />);
+    expect(wrapper.exists()).toBe(true);
   });
-
-  it("BodySection renders without crashing", () => {
+  it('shallowing the component should render correctly a BodySection component and that the props are passed correctly to the child component', () => {
     const wrapper = shallow(
-      <BodySection title="test title">
-        <p>test children node</p>
-      </BodySection>
+      <BodySectionWithMarginBottom title="test-title">
+        <p>test children</p>
+      </BodySectionWithMarginBottom>
     );
-
-    const h2 = wrapper.find("h2");
-    const p = wrapper.find("p");
-
-    expect(h2).toHaveLength(1);
-    expect(h2.text()).toEqual("test title");
-
-    expect(p).toHaveLength(1);
-    expect(p.text()).toEqual("test children node");
-  });
-  it("BodySection has correct class for style", () => {
-    const wrapper = shallow(
-      <BodySection title="test title">
-        <p>test children node</p>
-      </BodySection>
-    );
-
-    const div = wrapper.find(".bodySection").first();
-
-    expect(div.exists()).toEqual(true);
+    expect(wrapper.contains(<div className="bodySection" />));
+    expect(wrapper.children().length).toBe(1);
+    expect(wrapper.find('BodySection').exists()).toBe(true);
+    expect(wrapper.find('BodySection').length).toBe(1);
+    expect(wrapper.find('BodySection').props().title).toBe('test-title');
+    expect(wrapper.find('p').exists()).toBe(true);
+    expect(wrapper.find('p').text()).toBe('test children');
   });
 });

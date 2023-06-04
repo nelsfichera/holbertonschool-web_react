@@ -1,12 +1,22 @@
-:root {
-    --main-color: #e01d3f;
+.App-body {
+    height : 50vh;
+    padding: 3rem;
   }
   
-  .login {
-    margin: 50px;
-    flex-grow: 1;
+  .App-body>p {
+    font-weight: 500;
   }
-  .login input {
-    margin-left: 10px;
-    margin-right: 20px;
+  
+  
+  .App-body input {
+    margin       : 0 1rem;
+    border       : thin solid var(--gray-thin-color);
+    border-radius: 2px;
+    padding      : 0.2rem;
+  }
+  
+  .App-body button {
+    border       : thin solid var(--gray-thin-color);
+    cursor       : pointer;
+    border-radius: 2px;
   }
